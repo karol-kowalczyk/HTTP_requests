@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+
+        async function fetchDataJson() {
+            let resp = await fetch('https://www.fruityvice.com/api/fruit/all');
+            let respAsJson = await resp.json();
+           
+            fetchDataTxt();
+           console.log(respAsJson);
+        }
+
+        async function fetchDataTxt() {
+            let resp = await fetch('https://www.fruityvice.com/api/fruit/all');
+            let respText = await resp.text();
+
+            console.log(respText[0]['name']);
+        }
+
+    </script>
+
+  </head>
+  <body onload="fetchDataJson()">
+    <div id="content"></div>
+  </body>
+</html>
